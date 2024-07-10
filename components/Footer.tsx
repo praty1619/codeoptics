@@ -21,6 +21,9 @@ const Footer = () => {
             title="Let's get in touch"
             icon={<FaLocationArrow />}
             position="right"
+            onClick={function (): void {
+              throw new Error("Function not implemented.");
+            } }          
           />
         </a>
       </div>

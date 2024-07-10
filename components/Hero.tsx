@@ -1,10 +1,17 @@
+import { useState } from 'react';
 import { FaLocationArrow } from "react-icons/fa6";
 
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import PopupForm from './ui/PopupForm';
 
 const Hero = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const openForm = () => setIsFormOpen(true);
+  const closeForm = () => setIsFormOpen(false);
+
   return (
     <div className="pb-20 pt-36">
       {/**
@@ -60,15 +67,15 @@ const Hero = () => {
             Hi! We&apos;re CODEOPTICS ,<span className="text-yellow-100">Thriving in Development for 5 Years:</span> Passionately Crafting Your Success!
           </p>
 
-          <a href="#about">
             <MagicButton
-              title="Get Started"
+              title="Discuss Project"
               icon={<FaLocationArrow />}
               position="right"
+              onClick={openForm}
             />
-          </a>
         </div>
       </div>
+      <PopupForm isOpen={isFormOpen} onClose={closeForm} />
     </div>
   );
 };
